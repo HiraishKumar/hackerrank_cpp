@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <math.h>
 
 void update(int *a,int *b) {
-    // Complete this function    
-    int sum = (*a+*b);
-    int diff = *a>*b?*a-*b:*b-*a;
-    *a = sum;
-    *b = diff;
+    // Complete this function
+    int one = *a;
+    int two = *b;
+        
+    (*a) = (one + two);
+    (*b) = abs(one - two);
     }
 
 int main() {
