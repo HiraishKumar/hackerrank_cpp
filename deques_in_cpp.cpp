@@ -3,29 +3,23 @@
 using namespace std;
 
 void printKMax(int arr[], int n, int k){
-	//Write your code here.
-     deque<int> dq;
-    int i;
-    for (i = 0; i < k; i++) {
-        while (!dq.empty() && arr[i] >= arr[dq.back()]) {
-            dq.pop_back();
+    deque<int> q;   // Monotonically Increasing Queue
+    for (int i = 0; i < n; ++i) {
+        while (!q.empty() && arr[i] > q.back()) { // Make room arr[i]
+            q.pop_back();  // Remove smaller elements from the back
         }
-        dq.push_back(i);
-    }
-    for (; i < n; i++) {
-        cout << arr[dq.front()] << " ";
 
-        while (!dq.empty() && dq.front() <= i - k) {
-            dq.pop_front();
+        q.emplace_back(arr[i]);         // Add current maximum arr[i]
+        if (i+1 >= k) {
+            cout << q.front() << ' ';   // Print maximum at the front
+            if (arr[i+1-k] >= q.front()) {
+                q.pop_front();          // Remove maximum from the front
+            }
         }
-        while (!dq.empty() && arr[i] >= arr[dq.back()]) {
-            dq.pop_back();
-        }
-        dq.push_back(i);
     }
-    cout << arr[dq.front()] << endl;
-    
+    cout << '\n';
 }
+
 
 int main(){
   
