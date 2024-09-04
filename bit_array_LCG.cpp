@@ -10,6 +10,7 @@ int main() {
 	vector<int> hares(N + 1);
 	hares[0] = S % mod;
 	int ih = 0, it = 1 ;
+//TODO Error here fix it
 
 	while (it < N) {
 		ih += 2;
