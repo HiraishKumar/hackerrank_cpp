@@ -25,7 +25,6 @@ int main() {
 			break;
 		}
 	}
-
 	cout << it - 1;
 
 	return 0;
